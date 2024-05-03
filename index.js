@@ -14,13 +14,14 @@ app.use("/bootstrap", express.static(__dirname + "/node_modules/bootstrap/dist/c
 app.set("view engine", "hbs");
 app.engine("hbs", exphbs.engine({
     layoutsDir: __dirname + "/views",
-    extname: ".hbs"
+    extname: "hbs",
 }));
 
 // Routes
 app.get("/", (req, res) => {
-    res.render('home', { // Pass data as an object
-        productos: ["banana", "cebollas", "lechuga", "papas", "pimenton", "tomate"]
+    res.render("home", { // Pass data as an object
+        title: "productos",
+        producto: ["banana", "cebollas", "lechuga", "papas", "pimenton", "tomate"],
     });
 });
 
